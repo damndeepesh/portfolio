@@ -1,0 +1,4 @@
+# Redirects for Cloudflare Pages
+/blog /blog-reader.html 301
+/blogs /blog-reader.html 301
+/result /result/ 301

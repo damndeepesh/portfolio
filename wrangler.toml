@@ -7,17 +7,4 @@ command = "echo 'No build step needed - pure static site!'"
 cwd = ""
 watch_dir = "blogs"
 
-[[redirects]]
-from = "/blog"
-to = "/blog-reader.html"
-status = 301
-
-[[redirects]]
-from = "/blogs"
-to = "/blog-reader.html"
-status = 301
-
-[[redirects]]
-from = "/result"
-to = "/result/"
-status = 301
+# For Cloudflare Pages, redirects are handled in _redirects file
