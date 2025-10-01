@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "AI/ML Engineer Portfolio Website with Dynamic Blog System",
   "scripts": {
+    "build": "echo 'Static site build completed successfully'",
     "dev": "node serve.js",
     "serve": "node serve.js",
     "generate-blogs": "node generate-blog-list.js"
