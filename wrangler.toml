@@ -1,0 +1,18 @@
+# Cloudflare Pages Configuration
+name = "deepesh-portfolio"
+compatibility_date = "2024-01-01"
+
+[build]
+command = "echo 'No build step needed - pure static site!'"
+cwd = ""
+watch_dir = "blogs"
+
+[[redirects]]
+from = "/blog"
+to = "/blog-reader.html"
+status = 301
+
+[[redirects]]
+from = "/blogs"
+to = "/blog-reader.html"
+status = 301

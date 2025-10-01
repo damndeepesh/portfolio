@@ -1,0 +1,28 @@
+{
+  "name": "deepesh-portfolio",
+  "version": "1.0.0",
+  "description": "AI/ML Engineer Portfolio Website with Dynamic Blog System",
+  "scripts": {
+    "build": "node generate-blog-list.js",
+    "dev": "node serve.js",
+    "serve": "node serve.js",
+    "generate-blogs": "node generate-blog-list.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/damndeepesh/portfolio"
+  },
+  "keywords": [
+    "portfolio",
+    "ai",
+    "machine-learning",
+    "blog",
+    "static-site"
+  ],
+  "author": "Deepesh Gupta",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "python": ">=3.9.0"
+  }
+}
