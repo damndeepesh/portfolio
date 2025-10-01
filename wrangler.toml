@@ -16,3 +16,8 @@ status = 301
 from = "/blogs"
 to = "/blog-reader.html"
 status = 301
+
+[[redirects]]
+from = "/result"
+to = "/result/"
+status = 301

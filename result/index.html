@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-8">
+
+    <!-- Password Protection Form -->
+    <div id="password-form">
+        <div class="password-card">
+            <h1 class="text-3xl font-bold">Enter Password</h1>
+            <p class="text-gray-400 mt-2">Please enter the correct password to view the dashboard.</p>
+            <input type="password" id="password-input" placeholder="Password" />
+            <button id="password-submit">Submit</button>
+            <p id="error-message" class="hidden">Incorrect password. Please try again.</p>
+        </div>
+    </div>
+
+    <!-- Main Dashboard Container - Initially hidden -->
+    <div id="dashboard-content" class="max-w-7xl mx-auto hidden">
+
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-200">Deepesh Gupta's Academic Dashboard</h1>
+            <p class="text-gray-400 text-lg mt-4">Bachelor of Technology in Computer Science & Engineering, Batch 2021-2025</p>
+        </header>
+
+        <!-- Key Metrics Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <div class="dashboard-card text-center flex flex-col items-center justify-center">
+                <h2 class="text-xl font-semibold text-gray-400">Final CGPA</h2>
+                <p class="text-6xl font-extrabold text-blue-400 mt-4">8.72</p>
+            </div>
+            <div class="dashboard-card text-center flex flex-col items-center justify-center">
+                <h2 class="text-xl font-semibold text-gray-400">Total Credits Taken</h2>
+                <p class="text-6xl font-extrabold text-green-400 mt-4">179</p>
+            </div>
+            <div class="dashboard-card text-center flex flex-col items-center justify-center">
+                <h2 class="text-xl font-semibold text-gray-400">Total Marks Obtained</h2>
+                <p class="text-5xl font-extrabold text-purple-400 mt-4">3575 / 4300</p>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="dashboard-card">
+                <h2 class="text-2xl font-semibold card-header text-gray-200">Semester-wise Performance</h2>
+                <canvas id="sgpaChart"></canvas>
+            </div>
+            <div class="dashboard-card">
+                <h2 class="text-2xl font-semibold card-header text-gray-200">Semester Marks Comparison</h2>
+                <canvas id="marksChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Detailed Tables Section -->
+        <div class="dashboard-card mt-12">
+            <h2 class="text-2xl font-semibold card-header text-gray-200">Detailed Semester Grade Report</h2>
+
+            <!-- Semester I -->
+            <div class="container-box">
+                <h3 class="text-xl font-medium text-gray-200 mb-6">Semester I (SGPA: 9.16)</h3>
+                <div class="overflow-x-auto">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Max Marks</th>
+                                <th>Obtained Marks</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>MGT151</td><td>Introduction to Business</td><td>100</td><td>90</td><td>A+</td></tr>
+                            <tr><td>HUM126</td><td>Critical and Creative Thinking Skills</td><td>100</td><td>78</td><td>A</td></tr>
+                            <tr><td>SCI131</td><td>Environmental Science</td><td>100</td><td>93</td><td>O</td></tr>
+                            <tr><td>PCC012</td><td>Skills for Life long Learning</td><td>100</td><td>85</td><td>A+</td></tr>
+                            <tr><td>ENG103</td><td>Intermediate 1: Everyday Communication</td><td>100</td><td>81</td><td>A+</td></tr>
+                            <tr><td>PRG211</td><td>Python Programming</td><td>100</td><td>95</td><td>O</td></tr>
+                            <tr><td>PSY308</td><td>Positive Psychology</td><td>100</td><td>84</td><td>A+</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Semester II -->
+            <div class="container-box">
+                <h3 class="text-xl font-medium text-gray-200 mb-6">Semester II (SGPA: 8.86)</h3>
+                <div class="overflow-x-auto">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Max Marks</th>
+                                <th>Obtained Marks</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>COM301</td><td>Business Communication</td><td>100</td><td>78</td><td>A</td></tr>
+                            <tr><td>PHL201</td><td>Indian Ethos and Mindful Leadership</td><td>100</td><td>81</td><td>A+</td></tr>
+                            <tr><td>MTH391</td><td>Business Mathematics</td><td>100</td><td>94</td><td>O</td></tr>
+                            <tr><td>CST201</td><td>Database Management Systems</td><td>100</td><td>89</td><td>A+</td></tr>
+                            <tr><td>MTH393</td><td>Discrete Mathematics</td><td>100</td><td>86</td><td>A+</td></tr>
+                            <tr><td>PRG102</td><td>Data Structures and Algorithms</td><td>100</td><td>87</td><td>A+</td></tr>
+                            <tr><td>ENG105</td><td>Intermediate 2: Everyday Communication</td><td>100</td><td>80</td><td>A</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Semester III -->
+            <div class="container-box">
+                <h3 class="text-xl font-medium text-gray-200 mb-6">Semester III (SGPA: 9.00)</h3>
+                <div class="overflow-x-auto">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Max Marks</th>
+                                <th>Obtained Marks</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>MGT203</td><td>Design Thinking</td><td>100</td><td>79</td><td>A</td></tr>
+                            <tr><td>CST102</td><td>Introduction to Operation Systems</td><td>100</td><td>84</td><td>A+</td></tr>
+                            <tr><td>CYB301</td><td>Information Security Fundamentals</td><td>100</td><td>87</td><td>A+</td></tr>
+                            <tr><td>AIM301</td><td>Introduction to AI & Machine Learning</td><td>100</td><td>87</td><td>A+</td></tr>
+                            <tr><td>QNT201</td><td>Quantitative Methods for Decision Making</td><td>100</td><td>94</td><td>O</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Semester IV -->
+            <div class="container-box">
+                <h3 class="text-xl font-medium text-gray-200 mb-6">Semester IV (SGPA: 7.80)</h3>
+                <div class="overflow-x-auto">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Max Marks</th>
+                                <th>Obtained Marks</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>PRG104</td><td>Software Engineering and Web Development</td><td>100</td><td>82</td><td>A+</td></tr>
+                            <tr><td>PRG103</td><td>Object Oriented Programming using C++</td><td>100</td><td>80</td><td>A</td></tr>
+                            <tr><td>CYB401</td><td>Physical & IT System Security</td><td>100</td><td>79</td><td>A</td></tr>
+                            <tr><td>CST103</td><td>Computer Science Fundamentals</td><td>100</td><td>77</td><td>A</td></tr>
+                            <tr><td>RES201</td><td>Research Methods</td><td>100</td><td>59</td><td>B</td></tr>
+                            <tr><td>PCT103</td><td>Certificate in Artificial Intelligence</td><td>100</td><td>78</td><td>A</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Semester V -->
+            <div class="container-box">
+                <h3 class="text-xl font-medium text-gray-200 mb-6">Semester V (SGPA: 7.43)</h3>
+                <div class="overflow-x-auto">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Max Marks</th>
+                                <th>Obtained Marks</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>INT300</td><td>Internship (Co-op)</td><td>100</td><td>70</td><td>B+</td></tr>
+                            <tr><td>CST204</td><td>Data Communication and Computer Networks</td><td>100</td><td>62</td><td>B+</td></tr>
+                            <tr><td>CLD301</td><td>IT Infrastructure Landscape</td><td>100</td><td>75</td><td>A</td></tr>
+                            <tr><td>CLD302</td><td>Cloud Computing Fundamentals</td><td>100</td><td>61</td><td>B+</td></tr>
+                            <tr><td>PCT104</td><td>Certificate in IOT</td><td>100</td><td>82</td><td>A+</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Semester VI -->
+            <div class="container-box">
+                <h3 class="text-xl font-medium text-gray-200 mb-6">Semester VI (SGPA: 8.83)</h3>
+                <div class="overflow-x-auto">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Max Marks</th>
+                                <th>Obtained Marks</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>PCC103</td><td>Harvard Certification - Ethics at Work</td><td>100</td><td>100</td><td>O</td></tr>
+                            <tr><td>CST202</td><td>Computer Architecture</td><td>100</td><td>86</td><td>A+</td></tr>
+                            <tr><td>MTH203</td><td>Calculus and Algebra</td><td>100</td><td>91</td><td>O</td></tr>
+                            <tr><td>DAL302</td><td>Predictive Analytics</td><td>100</td><td>70</td><td>B+</td></tr>
+                            <tr><td>CST203</td><td>Wireless Communication</td><td>100</td><td>86</td><td>A+</td></tr>
+                            <tr><td>AIM401</td><td>Machine Learning</td><td>100</td><td>87</td><td>A+</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Semester VII -->
+            <div class="container-box">
+                <h3 class="text-xl font-medium text-gray-200 mb-6">Semester VII (SGPA: 10.00)</h3>
+                <div class="overflow-x-auto">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Max Marks</th>
+                                <th>Obtained Marks</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>INT301</td><td>Internship II</td><td>100</td><td>95</td><td>O</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Semester VIII -->
+            <div class="container-box">
+                <h3 class="text-xl font-medium text-gray-200 mb-6">Semester VIII (SGPA: 9.33)</h3>
+                <div class="overflow-x-auto">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Max Marks</th>
+                                <th>Obtained Marks</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>AIM402</td><td>Deep Learning</td><td>100</td><td>81</td><td>A+</td></tr>
+                            <tr><td>CST201</td><td>Embedded Systems</td><td>100</td><td>89</td><td>A+</td></tr>
+                            <tr><td>AIM404</td><td>Pattern and Anomaly Detection</td><td>100</td><td>84</td><td>A+</td></tr>
+                            <tr><td>CAP400</td><td>Capstone</td><td>100</td><td>92</td><td>O</td></tr>
+                            <tr><td>AIM403</td><td>Computational Linguistics</td><td>100</td><td>85</td><td>A+</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
