@@ -1,28 +1,33 @@
 {
-  "name": "deepesh-portfolio",
-  "version": "1.0.0",
-  "description": "AI/ML Engineer Portfolio Website with Dynamic Blog System",
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "build": "echo 'Static site build completed successfully'",
-    "dev": "node serve.js",
-    "serve": "node serve.js",
-    "generate-blogs": "node generate-blog-list.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/damndeepesh/portfolio"
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.25",
+    "lenis": "^1.3.15",
+    "lucide-react": "^0.555.0",
+    "next": "16.0.7",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "tailwind-merge": "^3.4.0"
   },
-  "keywords": [
-    "portfolio",
-    "ai",
-    "machine-learning",
-    "blog",
-    "static-site"
-  ],
-  "author": "Deepesh Gupta",
-  "license": "MIT",
-  "engines": {
-    "node": ">=18.0.0",
-    "python": ">=3.9.0"
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.7",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }

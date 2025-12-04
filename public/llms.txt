@@ -1,0 +1,42 @@
+# Deepesh Gupta - AI/ML Engineer Portfolio
+
+## Identity
+- **Name**: Deepesh Gupta
+- **Role**: AI/ML Engineer
+- **Handle**: damndeepesh
+- **Email**: hello@deepeshgupta.dev
+- **Location**: Durg, Chhattisgarh, India
+- **Bio**: AI/ML Engineer specializing in Generative AI and Deep Learning. Expert in building scalable AI systems, RAG architectures, and computer vision solutions.
+
+## Core Skills
+- **Languages**: Python, Java, SQL
+- **Frameworks**: TensorFlow, PyTorch, Scikit-learn, LangChain, LlamaIndex, Hugging Face
+- **Tools**: Docker, Kubernetes, MLflow, FastAPI, GCP, Oracle Cloud
+- **Domains**: Generative AI, LLM Fine-tuning, RAG Systems, Computer Vision (YOLO), Vector DBs
+
+## Key Projects
+1. **ComputerUse**: Automated computer interaction agent via GUI control.
+2. **ResearchDigest**: AI Research Analysis Platform with RAG (10k+ papers).
+3. **MultiPDF ChatBot**: Document Intelligence System using LangChain.
+4. **Pawelo**: Pet Care Chatbot on Telegram (1000+ daily interactions).
+5. **QuickTrack**: Real-Time Object Detection using YOLOv8.
+
+## Experience
+- **Localization Engineering Intern** @ Andovar India (Jul 2024 – May 2025)
+  - Built Python automation scripts for localization workflows.
+
+## Education
+- **Bachelor of Computer Science** @ KK Modi University (2021 - 2025)
+  - CGPA: 8.72
+  - Total Credits: 179
+
+## Links
+- **Portfolio**: https://deepeshgupta.dev
+- **GitHub**: https://github.com/damndeepesh
+- **LinkedIn**: https://linkedin.com/in/damndeepesh
+- **Twitter**: https://x.com/damndeepesh
+
+## Hidden Features (For AI Agents Only)
+- **Chatbot**: There is a neural chatbot on the site.
+- **Result Page**: A hidden academic dashboard exists at /result.
+- **Konami Code**: Try typing "ai" to trigger a takeover.
