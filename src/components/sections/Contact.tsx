@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { resume } from "@/data/resume";
 import MagneticButton from "@/components/ui/MagneticButton";
+import BookMeeting from "@/components/BookMeeting";
 import { ArrowUpRight } from "lucide-react";
 import TextReveal from "@/components/ui/TextReveal";
 
@@ -28,6 +29,7 @@ export default function Contact() {
                                 Email Me
                             </MagneticButton>
                         </a>
+                        <BookMeeting />
                         <a href={resume.contact.linkedin} target="_blank" rel="noopener noreferrer" className="cursor-hover" suppressHydrationWarning>
                             <MagneticButton className="h-16 px-8 text-lg bg-transparent border border-white/20 text-white hover:bg-white hover:text-black">
                                 LinkedIn <ArrowUpRight className="ml-2" />
