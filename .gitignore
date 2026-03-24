@@ -23,6 +23,9 @@
 # misc
 .DS_Store
 *.pem
+tmp-audit/
+skills/
+/Resume.pdf
 
 # debug
 npm-debug.log*
