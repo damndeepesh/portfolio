@@ -10,14 +10,14 @@ import {
 
 export async function unlockResult(formData: FormData) {
   const password = String(formData.get("password") ?? "").trim();
-  const isAllowed = isValidPassword(password);
+  const isAllowed = await isValidPassword(password);
 
   if (!isAllowed) {
     redirect("/result?error=1");
   }
 
   const cookieStore = await cookies();
-  cookieStore.set(resultAccessCookie, buildAccessToken(), {
+  cookieStore.set(resultAccessCookie, await buildAccessToken(), {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",

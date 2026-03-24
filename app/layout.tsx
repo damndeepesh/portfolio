@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Deepesh Gupta | AI/ML Engineer",
   description:
     "Portfolio of Deepesh Gupta, also known as damndeepesh, focused on generative AI, document intelligence, and computer vision systems.",
+  icons: {
+    icon: "/icon.svg",
+  },
   metadataBase: new URL("https://deepeshgupta.dev"),
   alternates: {
     canonical: "/",

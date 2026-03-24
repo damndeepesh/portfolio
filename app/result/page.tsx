@@ -5,6 +5,8 @@ import { isValidAccessToken, resultAccessCookie } from "./auth";
 import { resultProfile, semesterResults } from "./data";
 import ResultDashboard from "./result-dashboard";
 
+export const runtime = "edge";
+
 type ResultPageProps = {
   searchParams: Promise<{ error?: string }>;
 };
@@ -12,7 +14,7 @@ type ResultPageProps = {
 export default async function ResultPage({ searchParams }: ResultPageProps) {
   const cookieStore = await cookies();
   const params = await searchParams;
-  const isUnlocked = isValidAccessToken(cookieStore.get(resultAccessCookie)?.value);
+  const isUnlocked = await isValidAccessToken(cookieStore.get(resultAccessCookie)?.value);
 
   if (!isUnlocked) {
     return (
