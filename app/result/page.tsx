@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { cookies } from "next/headers";
-import { lockResult, unlockResult } from "./actions";
 import { isValidAccessToken, resultAccessCookie } from "./auth";
 import { resultProfile, semesterResults } from "./data";
 import ResultDashboard from "./result-dashboard";
@@ -29,7 +28,7 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
               Enter any approved password to unlock the complete semester-wise result, charts, and structured grade breakdown.
             </p>
 
-            <form action={unlockResult} className="mt-10 space-y-4">
+            <form action="/result/unlock" method="post" className="mt-10 space-y-4">
               <label className="block">
                 <span className="mb-2 block text-sm text-[color:var(--muted)]">Password</span>
                 <input
@@ -83,7 +82,7 @@ export default async function ResultPage({ searchParams }: ResultPageProps) {
             >
               Back to portfolio
             </Link>
-            <form action={lockResult}>
+            <form action="/result/lock" method="post">
               <button
                 type="submit"
                 className="inline-flex h-11 items-center rounded-full bg-[color:var(--foreground)] px-5 text-sm font-medium text-[color:var(--background)]"
