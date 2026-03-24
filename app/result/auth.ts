@@ -1,7 +1,6 @@
 export const resultAccessCookie = "result_access";
 
-const ACCESS_PAYLOAD = "kkmu-result-access";
-const ACCESS_SECRET = "deepesh-result-route-v1";
+const ACCESS_TOKEN = "kkmu-result-access-9f4f4f6e9c8a";
 const encoder = new TextEncoder();
 
 const PASSWORD_HASHES = [
@@ -35,20 +34,8 @@ async function sha256(value: string) {
   return toHex(digest);
 }
 
-async function sign(value: string) {
-  const key = await crypto.subtle.importKey(
-    "raw",
-    encoder.encode(ACCESS_SECRET),
-    { name: "HMAC", hash: "SHA-256" },
-    false,
-    ["sign"],
-  );
-  const signature = await crypto.subtle.sign("HMAC", key, encoder.encode(value));
-  return toHex(signature);
-}
-
 export async function buildAccessToken() {
-  return `${ACCESS_PAYLOAD}.${await sign(ACCESS_PAYLOAD)}`;
+  return ACCESS_TOKEN;
 }
 
 export async function isValidPassword(password: string) {
@@ -60,15 +47,5 @@ export async function isValidAccessToken(token?: string) {
   if (!token) {
     return false;
   }
-
-  const [payload, signature] = token.split(".");
-  if (!payload || !signature) {
-    return false;
-  }
-
-  const expected = await sign(payload);
-  return (
-    payload === ACCESS_PAYLOAD &&
-    timingSafeEqualHex(signature, expected)
-  );
+  return token === ACCESS_TOKEN;
 }
