@@ -8,7 +8,7 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import ThemeToggle from "./theme-toggle";
+import ThemeToggle from "./theme-switcher";
 
 const capabilityGroups = [
   {
@@ -70,11 +70,18 @@ const projects = [
 
 const experiences = [
   {
-    title: "AI Research Engineer Intern",
-    company: "Magure India Pvt. Ltd.",
-    period: "Feb 2026 – Present",
+    title: "Associate AI Engineer",
+    company: "Magure",
+    period: "Jun 2026 – Present",
     description:
-      "Working on applied AI research and intelligent systems with a focus on practical experimentation and product-oriented development.",
+      "Advancing applied AI research and intelligent systems through practical experimentation, while engineering robust internal tools for product applications.",
+  },
+  {
+    title: "AI Research Intern",
+    company: "Magure",
+    period: "Feb 2026 – Jun 2026",
+    description:
+      "Worked on applied AI research and intelligent systems with a focus on practical experimentation and product-oriented development.",
   },
   {
     title: "Localization Engineering Intern",
@@ -256,7 +263,7 @@ export default function PortfolioPage() {
             animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ ...sectionTransition, delay: 0.05 }}
           >
-            AI/ML Engineer
+            Associate AI Engineer
           </motion.p>
           <motion.h1
             className="mt-5 max-w-3xl text-[clamp(3.8rem,10vw,7.2rem)] font-semibold leading-[0.95] tracking-[-0.07em]"
@@ -346,7 +353,7 @@ export default function PortfolioPage() {
                     Role
                   </p>
                   <p className="mt-1 text-base leading-7">
-                    AI Research Engineer at Magure India Pvt. Ltd.
+                    Associate AI Engineer at Magure
                   </p>
                 </div>
                 <div>
