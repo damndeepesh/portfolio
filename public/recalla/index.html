@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en" data-version="0.1.0">
+<head>
+<meta charset="utf-8">
+<!-- The site always lives under /recalla/ (GitHub Pages and deepeshgupta.dev/recalla). The base keeps relative asset URLs working when a proxy serves it at /recalla without the trailing slash. -->
+<base href="/recalla/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recalla: memory your coding agents can trust</title>
+<meta name="description" content="Local-first memory engine for Claude Code, Codex and other coding agents. Source-linked memories, flagged when the code they describe changes, packed to a token budget you set.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'">
+<meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0e13" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://deepeshgupta.dev/recalla/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Recalla">
+<meta property="og:title" content="Recalla: memory your coding agents can trust">
+<meta property="og:description" content="Local-first memory for Claude Code and Codex. Source-linked, flagged when the code changes, packed to a token budget.">
+<meta property="og:url" content="https://deepeshgupta.dev/recalla/">
+<meta property="og:image" content="https://deepeshgupta.dev/recalla/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Recalla: memory your coding agents can trust">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recalla: memory your coding agents can trust">
+<meta name="twitter:description" content="Local-first memory for Claude Code and Codex. Source-linked, flagged when the code changes, packed to a token budget.">
+<meta name="twitter:image" content="https://deepeshgupta.dev/recalla/assets/og.png">
+<script src="assets/theme.js"></script>
+<link rel="stylesheet" href="assets/app.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Recalla",
+  "description": "Local-first memory engine for Claude Code, Codex and other coding agents.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "macOS, Linux",
+  "softwareVersion": "0.1.0",
+  "license": "https://www.apache.org/licenses/LICENSE-2.0",
+  "url": "https://deepeshgupta.dev/recalla/",
+  "downloadUrl": "https://github.com/damndeepesh/recalla/releases/latest",
+  "codeRepository": "https://github.com/damndeepesh/recalla",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "author": {"@type": "Person", "name": "Deepesh Gupta", "url": "https://deepeshgupta.dev"}
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="wrap top">
+  <a class="brand" href="./"><img src="favicon.svg" alt="" width="28" height="28">Recalla</a>
+  <nav class="nav" aria-label="Primary">
+    <a class="nav-text" href="#demo">Demo</a>
+    <a class="nav-text" href="#how">How it works</a>
+    <a class="nav-text" href="#download">Download</a>
+    <a class="nav-text" href="#limits">Limits</a>
+    <a href="https://github.com/damndeepesh/recalla" aria-label="Recalla on GitHub">GitHub</a>
+    <button class="icon-btn" id="theme" type="button" aria-label="Switch colour theme">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="h-hero">
+  <div class="wrap">
+    <div>
+      <span class="pill">Alpha, v<span data-ver>0.1.0</span></span>
+      <h1 id="h-hero">Memory your coding agents can trust.</h1>
+      <p class="one">Recalla is a local-first memory engine for Claude Code, Codex and other coding agents. It turns your existing session history into source-linked memories, flags a memory when the code it describes changes, and gives agents only what fits a token budget.</p>
+
+      <div class="install" id="install">
+        <div class="tablist" role="tablist" aria-label="Install method">
+          <button class="tab" role="tab" id="t-cargo" aria-controls="p-cargo" aria-selected="true" type="button">cargo install</button>
+          <button class="tab" role="tab" id="t-binstall" aria-controls="p-binstall" aria-selected="false" tabindex="-1" type="button">cargo binstall</button>
+          <button class="tab" role="tab" id="t-dl" aria-controls="p-dl" aria-selected="false" tabindex="-1" type="button">Download</button>
+        </div>
+        <div class="panel" role="tabpanel" id="p-cargo" aria-labelledby="t-cargo">
+          <p class="label js-hide-label">cargo install</p>
+          <div class="cmd"><code data-copy>cargo install recalla</code><button class="copy" type="button">Copy</button></div>
+          <p class="note">Builds from source. Needs a stable Rust toolchain.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="p-binstall" aria-labelledby="t-binstall">
+          <p class="label js-hide-label">cargo binstall</p>
+          <div class="cmd"><code data-copy>cargo binstall recalla</code><button class="copy" type="button">Copy</button></div>
+          <p class="note">Fetches the prebuilt binary instead of compiling. Needs <a href="https://github.com/cargo-bins/cargo-binstall">cargo-binstall</a>.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="p-dl" aria-labelledby="t-dl">
+          <p class="label js-hide-label">Download</p>
+          <p>Prebuilt binaries for macOS (arm64, x86_64) and Linux (x86_64, arm64) are on the <a href="https://github.com/damndeepesh/recalla/releases/latest">latest release</a>. <a href="#download">See every platform</a>.</p>
+          <div class="cmd"><code data-copy>gh attestation verify &lt;file&gt; --repo damndeepesh/recalla</code><button class="copy" type="button">Copy</button></div>
+          <p class="note">Verify provenance with the command above. A binary downloaded in a browser on macOS may need <code>xattr -d com.apple.quarantine &lt;file&gt;</code>, because the binaries are not notarized.</p>
+        </div>
+        <p class="sr" id="live" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="start">
+        <p>Then, in your terminal:</p>
+        <ol>
+          <li><code>recalla backfill</code> imports your Claude Code and Codex history.</li>
+          <li><code>recalla hooks install</code> makes new Claude Code sessions start with relevant memory.</li>
+        </ol>
+      </div>
+      <div class="cta">
+        <a class="btn" href="https://github.com/damndeepesh/recalla">GitHub</a>
+        <a class="btn ghost" href="https://crates.io/crates/recalla">crates.io</a>
+      </div>
+    </div>
+
+    <figure class="term aside">
+      <div class="bar">recalla pack</div>
+      <pre tabindex="0" aria-label="Excerpt of recalla pack output"><span class="d"># Recalla memory · project proj · 113/600 tok</span>
+## Preferences
+- Never commit with failing tests. [5f34437c]
+## Procedures
+- `make check` [d44367e4]
+<span class="w">## Needs re-verify ⚠
+- We decided that `Store::insert` in
+  src/store.rs must run inside a transaction.
+  (symbol changed: Store::insert) [f76f7ff6]</span></pre>
+      <figcaption>A decision stays visible, but flagged, once its code changes.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" id="demo" aria-labelledby="h-demo">
+  <div class="wrap">
+    <div class="head"><h2 id="h-demo">See it work</h2><p class="lede">A decision, then a code change.</p></div>
+    <div class="body">
+      <ol class="demo-steps">
+        <li><strong>Backfill.</strong> A session where the agent decided <code>Store::insert</code> must run in a transaction.</li>
+        <li><strong>Pack.</strong> The decision is in the context pack, with its source id.</li>
+        <li><strong>Edit and check.</strong> Change that function. The memory is flagged instead of trusted.</li>
+      </ol>
+      <figure class="term">
+        <div class="bar">zsh, synthetic project</div>
+<pre tabindex="0" aria-label="Terminal session: backfill, pack, edit, check, pack"><span class="p">$ </span><span class="c">recalla backfill</span>
+files      1 seen: 1 new, 0 resumed, 0 restarted, 0 unchanged, 0 failed
+harnesses  claude-code 1
+events     4 added, 0 malformed lines skipped
+redacted   0
+archive    1.4 KB -> 435 B
+time       22 ms
+extracted  4 events -> 3 new memories (decision 1, preference 1, procedure 1), 0 duplicates
+time       10 ms
+mirror     …/data/mirror
+
+<span class="p">$ </span><span class="c">recalla pack --budget 600</span>
+# Recalla memory · project proj · 98/600 tok
+## Preferences
+- Never commit with failing tests. [5f34437c]
+## Decisions
+- We decided that `Store::insert` in src/store.rs must run inside a transaction. [f76f7ff6]
+## Procedures
+- `make check` [d44367e4]
+
+<span class="d"># ...edit Store::insert in src/store.rs...</span>
+
+<span class="p">$ </span><span class="c">recalla check</span>
+checked 1 anchors: 1 newly stale, 0 stale but matching again (confirm to clear)
+
+<span class="p">$ </span><span class="c">recalla pack --budget 600</span>
+# Recalla memory · project proj · 113/600 tok
+## Preferences
+- Never commit with failing tests. [5f34437c]
+## Procedures
+- `make check` [d44367e4]
+<span class="w">## Needs re-verify ⚠
+- We decided that `Store::insert` in src/store.rs must run inside a transaction. (symbol changed: Store::insert) [f76f7ff6]</span></pre>
+        <figcaption>Real output from the v0.1.0 binary on a synthetic project in a scratch directory. Only the data path is shortened.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="h-why">
+  <div class="wrap">
+    <div class="head"><h2 id="h-why">Four problems with agent memory</h2><p class="lede">And what Recalla does about each.</p></div>
+    <div class="body pairs">
+      <div class="pair">
+        <div class="prob"><h3>History you already have is ignored</h3><p>Most tools only capture from install onward.</p></div>
+        <div class="fix"><p><strong>Backfills</strong> existing Claude Code and Codex sessions into atomic memories. Every memory links to the exact message it came from (<code>recalla why &lt;id&gt;</code>).</p></div>
+      </div>
+      <div class="pair">
+        <div class="prob"><h3>Stale memories are served with full confidence</h3><p>A fact about code that has since changed looks as true as the day it was written.</p></div>
+        <div class="fix"><p><strong>Anchors</strong> memories to code symbols. When the symbol changes, the memory is marked <code>needs_reverify</code> instead of being silently trusted.</p></div>
+      </div>
+      <div class="pair">
+        <div class="prob"><h3>Memory eats the context window</h3><p>Large tool surfaces and LLM observers add thousands of tokens per request.</p></div>
+        <div class="fix"><p><strong>Token budgets.</strong> A 4-tool MCP surface under 1k tokens, packs capped at the budget you set, and a ledger of exactly what was injected.</p></div>
+      </div>
+      <div class="pair">
+        <div class="prob"><h3>Heavy runtimes and privacy risk</h3><p>Background daemons, vector databases and cloud extraction.</p></div>
+        <div class="fix"><p><strong>One binary, no daemon, no LLM, no network.</strong> Secrets are redacted before anything touches disk.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how" aria-labelledby="h-how">
+  <div class="wrap">
+    <div class="head"><h2 id="h-how">How it works</h2><p class="lede">Logs in, a budgeted pack out.</p></div>
+    <div class="body">
+      <div class="diagram">
+        <svg class="wide" viewBox="0 0 880 272" role="img" aria-labelledby="dw-t dw-d"><title id="dw-t">Recalla pipeline</title><desc id="dw-d">Session logs are parsed, redacted and extracted into SQLite. Code symbols become anchors that also feed SQLite. SQLite produces a token-budgeted pack that reaches the agent through hooks, MCP or the CLI.</desc>
+        <g class="node " transform="translate(0 108)"><rect width="140" height="56" rx="6"/><text x="12" y="25">Session logs</text><text class="sub" x="12" y="43">Claude, Codex</text></g>
+        <g class="node " transform="translate(185 108)"><rect width="140" height="56" rx="6"/><text x="12" y="25">Parse</text><text class="sub" x="12" y="43">normalize</text></g>
+        <g class="node " transform="translate(370 108)"><rect width="140" height="56" rx="6"/><text x="12" y="25">Redact</text><text class="sub" x="12" y="43">3 layers</text></g>
+        <g class="node " transform="translate(555 108)"><rect width="140" height="56" rx="6"/><text x="12" y="25">Extract</text><text class="sub" x="12" y="43">rule-based</text></g>
+        <g class="node key" transform="translate(740 108)"><rect width="140" height="56" rx="6"/><text x="12" y="25">SQLite</text><text class="sub" x="12" y="43">+ FTS5</text></g>
+        <path class="edge " d="M140 136H185"/>
+        <path class="tip " d="M185 136l-7-4v8z"/>
+        <path class="edge " d="M325 136H370"/>
+        <path class="tip " d="M370 136l-7-4v8z"/>
+        <path class="edge " d="M510 136H555"/>
+        <path class="tip " d="M555 136l-7-4v8z"/>
+        <path class="edge " d="M695 136H740"/>
+        <path class="tip " d="M740 136l-7-4v8z"/>
+        <g class="node " transform="translate(555 8)"><rect width="140" height="56" rx="6"/><text x="12" y="25">Your code</text><text class="sub" x="12" y="43">source files</text></g>
+        <g class="node warn" transform="translate(740 8)"><rect width="140" height="56" rx="6"/><text x="12" y="25">Anchors</text><text class="sub" x="12" y="43">symbols</text></g>
+        <path class="edge " d="M695 36H740"/>
+        <path class="tip warn" d="M740 36l-7-4v8z"/>
+        <path class="edge warn" d="M810 64V108"/>
+        <path class="tip warn" d="M810 108l-4-7h8z"/>
+        <path class="edge " d="M810 164V208"/>
+        <path class="tip " d="M810 208l-4-7h8z"/>
+        <g class="node key" transform="translate(740 208)"><rect width="140" height="56" rx="6"/><text x="12" y="25">Pack</text><text class="sub" x="12" y="43">token budget</text></g>
+        <path class="edge " d="M740 236H695"/>
+        <path class="tip " d="M695 236l7-4v8z"/>
+        <g class="node " transform="translate(555 208)"><rect width="140" height="56" rx="6"/><text x="12" y="25">Agent</text><text class="sub" x="12" y="43">hooks, MCP, CLI</text></g>
+        </svg>
+        <svg class="tall" viewBox="0 0 300 520" role="img" aria-labelledby="dt-t dt-d"><title id="dt-t">Recalla pipeline</title><desc id="dt-d">Session logs are parsed, redacted and extracted into SQLite. Code symbols become anchors that also feed SQLite. SQLite produces a token-budgeted pack that reaches the agent through hooks, MCP or the CLI.</desc>
+        <g class="node " transform="translate(0 0)"><rect width="130" height="56" rx="6"/><text x="12" y="25">Session logs</text><text class="sub" x="12" y="43">Claude, Codex</text></g>
+        <path class="edge " d="M65 56V76"/>
+        <path class="tip " d="M65 76l-4-7h8z"/>
+        <g class="node " transform="translate(0 76)"><rect width="130" height="56" rx="6"/><text x="12" y="25">Parse</text><text class="sub" x="12" y="43">normalize</text></g>
+        <path class="edge " d="M65 132V152"/>
+        <path class="tip " d="M65 152l-4-7h8z"/>
+        <g class="node " transform="translate(0 152)"><rect width="130" height="56" rx="6"/><text x="12" y="25">Redact</text><text class="sub" x="12" y="43">3 layers</text></g>
+        <path class="edge " d="M65 208V228"/>
+        <path class="tip " d="M65 228l-4-7h8z"/>
+        <g class="node " transform="translate(0 228)"><rect width="130" height="56" rx="6"/><text x="12" y="25">Extract</text><text class="sub" x="12" y="43">rule-based</text></g>
+        <g class="node " transform="translate(170 152)"><rect width="130" height="56" rx="6"/><text x="12" y="25">Your code</text><text class="sub" x="12" y="43">source files</text></g>
+        <g class="node warn" transform="translate(170 228)"><rect width="130" height="56" rx="6"/><text x="12" y="25">Anchors</text><text class="sub" x="12" y="43">symbols</text></g>
+        <path class="edge warn" d="M235 208V228"/>
+        <path class="tip warn" d="M235 228l-4-7h8z"/>
+        <path class="edge " d="M65 284V304"/>
+        <path class="tip " d="M65 304l-4-7h8z"/>
+        <path class="edge warn" d="M235 284V304"/>
+        <path class="tip warn" d="M235 304l-4-7h8z"/>
+        <g class="node key" transform="translate(0 304)"><rect width="300" height="56" rx="6"/><text x="12" y="25">SQLite</text><text class="sub" x="12" y="43">+ FTS5</text></g>
+        <path class="edge " d="M150 360V380"/>
+        <path class="tip " d="M150 380l-4-7h8z"/>
+        <g class="node key" transform="translate(0 380)"><rect width="300" height="56" rx="6"/><text x="12" y="25">Pack</text><text class="sub" x="12" y="43">token budget</text></g>
+        <path class="edge " d="M150 436V456"/>
+        <path class="tip " d="M150 456l-4-7h8z"/>
+        <g class="node " transform="translate(0 456)"><rect width="300" height="56" rx="6"/><text x="12" y="25">Agent</text><text class="sub" x="12" y="43">hooks, MCP, CLI</text></g>
+        </svg>
+      </div>
+      <ul class="points">
+        <li><strong>Atomic memories</strong><span>Decisions, facts, procedures, gotchas, preferences and tasks, each with provenance, confidence, scope and a reversible lifecycle. Nothing is hard-deleted.</span></li>
+        <li><strong>Deterministic identity</strong><span>A memory's ID is a hash of its content, so re-importing never creates duplicates and two machines agree on IDs without syncing.</span></li>
+        <li><strong>Readable without the engine</strong><span>A markdown mirror, one file per memory, lets any agent or person read memory with <code>cat</code> and <code>grep</code>.</span></li>
+      </ul>
+      <p class="note">Components and data flow: <a href="https://github.com/damndeepesh/recalla/blob/main/ARCHITECTURE.md">ARCHITECTURE.md</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="h-feat">
+  <div class="wrap">
+    <div class="head"><h2 id="h-feat">What you get</h2></div>
+    <ul class="body grid">
+      <li><h3>Backfill with provenance</h3><p>Resumable import of Claude Code and Codex history. <code>recalla why</code> shows the exact message behind any memory.</p></li>
+      <li><h3>Code anchors and staleness</h3><p>Memories anchor to symbols in Rust, Python, Go, TypeScript and JavaScript. Change the code and <code>recalla check</code> flags them.</p></li>
+      <li><h3>Token budget and ledger</h3><p><code>recalla pack --budget</code> never exceeds what you set. <code>recalla stats</code> shows what was injected and its token cost.</p></li>
+      <li><h3>A 4-tool MCP server</h3><p><code>recall</code>, <code>remember</code>, <code>review</code>, <code>why</code>. All tool descriptions come to about 430 tokens.</p></li>
+      <li><h3>Hooks that never block</h3><p>Claude Code hooks inject memory at session start and capture new turns. They exit cleanly on bad input and back up <code>settings.json</code> first.</p></li>
+      <li><h3>Secret redaction</h3><p>Three layers before anything is stored: known credential formats, secret-bearing keys and flags, and an entropy catch-all.</p></li>
+      <li><h3>Markdown mirror and rebuild</h3><p>One file per memory. If the database is lost, <code>recalla rebuild --from-mirror</code> restores it, after a dry run and a backup.</p></li>
+      <li><h3>Private by default</h3><p>No daemon, no LLM calls, no network calls in the default build. Source logs are never modified.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="numbers" aria-labelledby="h-num">
+  <div class="wrap">
+    <div class="head"><h2 id="h-num">Numbers</h2><p class="lede">Measured on an Apple M2. Every one comes from a command you can run.</p></div>
+    <ul class="body nums">
+      <li><div class="fig">21.6 s<small>320 MB of history</small></div><p>Backfill of a synthetic Claude and Codex history. A re-run takes 0.03 s. Reproduce with <code>make perf</code>.</p></li>
+      <li><div class="fig">13 ms<small>p95 session-start hook</small></div><p>With 100k memories in the database. Reproduce with <code>make perf</code>.</p></li>
+      <li><div class="fig">~430<small>tokens for all 4 MCP tools</small></div><p>The whole tool surface an agent has to read. Checked by <code>make e2e</code>.</p></li>
+      <li><div class="fig">10 MB<small>release binary</small></div><p>Each language grammar is a cargo feature. Reproduce with <code>cargo build --release</code>.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="privacy" aria-labelledby="h-priv">
+  <div class="wrap">
+    <div class="head"><h2 id="h-priv">Privacy and security</h2></div>
+    <div class="body">
+      <ul class="checks">
+        <li><strong>Local only.</strong> No daemon, no LLM and no network calls in the default build. Your history never leaves your machine.</li>
+        <li><strong>Redact before persist.</strong> Secrets are scrubbed before any text reaches the database or the mirror. The redactor is tested against real-world credential shapes and fuzzed.</li>
+        <li><strong>Private files.</strong> Mirror files are mode 0600, and the mirror directory is 0700.</li>
+        <li><strong>Your logs are read-only.</strong> Source session logs are never modified.</li>
+      </ul>
+      <p><code>make e2e</code> runs 64 checks on the release binary, including that planted secrets never reach the database. To report a vulnerability, see <a href="https://github.com/damndeepesh/recalla/blob/main/SECURITY.md">SECURITY.md</a>. Please don't open a public issue.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="download" aria-labelledby="h-dl">
+  <div class="wrap">
+    <div class="head"><h2 id="h-dl">Download</h2><p class="lede">v<span data-ver>0.1.0</span>. macOS and Linux; Windows via WSL.</p></div>
+    <div class="body">
+      <ul class="cards" id="cards">
+        <li><div class="card" data-os="mac" data-arch="arm">
+          <span class="rec">Recommended for your system</span><h3>macOS, Apple silicon</h3><span class="tgt">aarch64-apple-darwin</span>
+          <a class="btn" data-asset="aarch64-apple-darwin" href="https://github.com/damndeepesh/recalla/releases/download/v0.1.0/recalla-v0.1.0-aarch64-apple-darwin.tar.gz">Download .tar.gz</a></div></li>
+        <li><div class="card" data-os="mac" data-arch="x64">
+          <span class="rec">Recommended for your system</span><h3>macOS, Intel</h3><span class="tgt">x86_64-apple-darwin</span>
+          <a class="btn" data-asset="x86_64-apple-darwin" href="https://github.com/damndeepesh/recalla/releases/download/v0.1.0/recalla-v0.1.0-x86_64-apple-darwin.tar.gz">Download .tar.gz</a></div></li>
+        <li><div class="card" data-os="linux" data-arch="x64">
+          <span class="rec">Recommended for your system</span><h3>Linux, x86_64</h3><span class="tgt">x86_64-unknown-linux-gnu</span>
+          <a class="btn" data-asset="x86_64-unknown-linux-gnu" href="https://github.com/damndeepesh/recalla/releases/download/v0.1.0/recalla-v0.1.0-x86_64-unknown-linux-gnu.tar.gz">Download .tar.gz</a></div></li>
+        <li><div class="card" data-os="linux" data-arch="arm">
+          <span class="rec">Recommended for your system</span><h3>Linux, arm64</h3><span class="tgt">aarch64-unknown-linux-gnu</span>
+          <a class="btn" data-asset="aarch64-unknown-linux-gnu" href="https://github.com/damndeepesh/recalla/releases/download/v0.1.0/recalla-v0.1.0-aarch64-unknown-linux-gnu.tar.gz">Download .tar.gz</a></div></li>
+        <li><div class="card planned">
+          <h3>Windows: use WSL</h3><span class="tgt">native build not working yet</span>
+          <p class="note">The Linux build runs inside WSL today. <a href="https://github.com/damndeepesh/recalla/issues">Native Windows is planned</a>.</p></div></li>
+        <li><div class="card">
+          <h3>Checksums</h3><span class="tgt">SHA256SUMS</span>
+          <a class="btn ghost" data-asset="SHA256SUMS" href="https://github.com/damndeepesh/recalla/releases/download/v0.1.0/SHA256SUMS">Download SHA256SUMS</a></div></li>
+      </ul>
+      <p class="note" id="detected" hidden></p>
+      <div class="dl-more">
+        <h3 class="subhead">Or use cargo</h3>
+        <div class="cmd"><code>cargo install recalla</code></div>
+        <div class="cmd"><code>cargo binstall recalla</code></div>
+        <h3 class="subhead">Verify what you downloaded</h3>
+        <div class="cmd"><code>gh attestation verify &lt;file&gt; --repo damndeepesh/recalla</code></div>
+        <p class="note">Releases carry SHA256SUMS and provenance attestations. A binary downloaded in a browser on macOS may need <code>xattr -d com.apple.quarantine &lt;file&gt;</code>, because the binaries are not notarized. Native Windows is not supported yet; use WSL.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="limits" aria-labelledby="h-lim">
+  <div class="wrap">
+    <div class="head"><h2 id="h-lim">Known limits and roadmap</h2><p class="lede">Alpha software, with the weak spots listed.</p></div>
+    <div class="body">
+      <ul class="limits">
+        <li><strong>Extraction is rule-based.</strong> It is precise but misses implicit rules, and it can still pick up a stray sentence. Check what it found with <code>recalla search</code>. To drop a wrong memory, ask your agent to forget it through the MCP <code>review</code> tool (reversible with <code>recalla confirm &lt;id&gt;</code>). A standalone <code>recalla forget</code> is the first post-release item.</li>
+        <li><strong>Anchors need code to anchor to.</strong> A memory is anchored when it names a symbol that exists in a file from the same session, or a file path in its text. Prose-only histories produce few anchors.</li>
+        <li><strong>Claude Code gets the hooks.</strong> Codex is covered by <code>backfill</code> and MCP. Native Codex hooks are on the roadmap.</li>
+        <li><strong>English only</strong> for extraction phrases.</li>
+        <li><strong>Extraction quality is measured on a synthetic eval</strong> (53 labels). Treat it as a regression gate, not a claim about your logs.</li>
+        <li><strong>macOS and Linux are tested in CI.</strong> Native Windows does not work yet; use WSL.</li>
+      </ul>
+      <div class="road">
+        <div><h3>Toward v1.0</h3><ul><li>Better extraction</li><li>Contradiction resolution</li><li>Optional local embeddings</li><li>Native Codex hooks</li><li>Gemini CLI, OpenCode and Cursor harnesses</li><li>Published benchmarks, losses included</li></ul></div>
+        <div><h3>Later</h3><ul><li>Optional local-LLM extraction</li><li>Serverless mirror sync</li><li>Hosted team sync</li></ul></div>
+      </div>
+      <p><a href="https://github.com/damndeepesh/recalla/blob/main/ROADMAP.md">Full roadmap</a>. If Recalla misses or invents something on your logs, <a href="https://github.com/damndeepesh/recalla/issues">open an issue</a>.</p>
+      <p class="next"><strong>Coming next:</strong> a local dashboard to browse your sessions and memories (<code>recalla ui</code>).</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Built by <a href="https://deepeshgupta.dev">Deepesh Gupta</a>. Licensed under <a href="https://github.com/damndeepesh/recalla/blob/main/LICENSE">Apache-2.0</a>.</p>
+    <ul>
+      <li><a href="https://github.com/damndeepesh/recalla">GitHub</a></li>
+      <li><a href="https://crates.io/crates/recalla">crates.io</a></li>
+      <li><a href="https://github.com/damndeepesh/recalla/blob/main/SECURITY.md">Security</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="assets/app.js" defer></script>
+</body>
+</html>

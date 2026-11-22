@@ -1,17 +1,14 @@
 import type { NextConfig } from "next";
 
-// https://deepeshgupta.dev/recalla is the Recalla landing page. Its source lives
-// in github.com/damndeepesh/recalla (folder web/) and is deployed to GitHub Pages;
-// these rewrites proxy it so the address stays on this domain. The page is built
-// for the /recalla/ base path and works with or without the trailing slash.
-const RECALLA_SITE = "https://damndeepesh.github.io/recalla";
-
+// https://deepeshgupta.dev/recalla is the Recalla landing page. Its source lives in
+// github.com/damndeepesh/recalla (folder web/); a copy is committed under
+// public/recalla/ so it is served as plain static files by any host (including
+// the Cloudflare adapter). The page is built for the /recalla/ base path and
+// works with or without the trailing slash. To update it, run the sync command
+// from that repo's web/README.md.
 const nextConfig: NextConfig = {
   async rewrites() {
-    return [
-      { source: "/recalla", destination: `${RECALLA_SITE}/` },
-      { source: "/recalla/:path*", destination: `${RECALLA_SITE}/:path*` },
-    ];
+    return [{ source: "/recalla", destination: "/recalla/index.html" }];
   },
 };
 
