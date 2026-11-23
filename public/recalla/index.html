@@ -12,7 +12,7 @@ content="Local-first memory engine for Claude Code, Codex and other coding agent
 />
 <meta
 http-equiv="Content-Security-Policy"
-content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'"
+content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'"
 />
 <meta name="color-scheme" content="light dark" />
 <meta
@@ -225,6 +225,17 @@ it describes changed.
 </figcaption>
 </figure>
 </div>
+</div>
+</section>
+<section class="sec watch" id="watch" aria-labelledby="h-watch">
+<div class="wrap">
+<h2 id="h-watch" class="sr-only">Watch the 20-second introduction</h2>
+<div class="watch-frame">
+<video controls preload="none" playsinline poster="assets/recalla-intro-poster.jpg" width="1920" height="1080" aria-label="Recalla in 20 seconds: install, backfill, memories, context packs, dashboard">
+<source src="assets/recalla-intro.mp4" type="video/mp4" />
+</video>
+</div>
+<p class="watch-cap">20 seconds: install, backfill, memories, a context pack, the dashboard.</p>
 </div>
 </section>
 <div class="strip"><div class="wrap strip-in"><p class="strip-h">Works with</p><ul class="strip-list"><li>Claude Code</li><li>Codex</li><li>MCP clients</li><li>SQLite + FTS5</li><li>macOS</li><li>Linux</li><li>Anchors in Rust, Python, Go, TypeScript, JavaScript</li></ul></div></div>
