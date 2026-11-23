@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-version="0.1.0">
+<html lang="en" data-version="0.2.0">
 <head>
 <meta charset="utf-8">
 <!-- The site always lives under /recalla/ (GitHub Pages and deepeshgupta.dev/recalla). The base keeps relative asset URLs working when a proxy serves it at /recalla without the trailing slash. -->
@@ -35,7 +35,7 @@
   "description": "Local-first memory engine for Claude Code, Codex and other coding agents.",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "macOS, Linux",
-  "softwareVersion": "0.1.0",
+  "softwareVersion": "0.2.0",
   "license": "https://www.apache.org/licenses/LICENSE-2.0",
   "url": "https://deepeshgupta.dev/recalla/",
   "downloadUrl": "https://github.com/damndeepesh/recalla/releases/latest",
@@ -52,6 +52,7 @@
   <a class="brand" href="./"><img src="favicon.svg" alt="" width="28" height="28">Recalla</a>
   <nav class="nav" aria-label="Primary">
     <a class="nav-text" href="#demo">Demo</a>
+    <a class="nav-text" href="#dashboard">Dashboard</a>
     <a class="nav-text" href="#how">How it works</a>
     <a class="nav-text" href="#download">Download</a>
     <a class="nav-text" href="#limits">Limits</a>
@@ -67,7 +68,7 @@
 <section class="hero" aria-labelledby="h-hero">
   <div class="wrap">
     <div>
-      <span class="pill">Alpha, v<span data-ver>0.1.0</span></span>
+      <span class="pill">Alpha, v<span data-ver>0.2.0</span></span>
       <h1 id="h-hero">Memory your coding agents can trust.</h1>
       <p class="one">Recalla is a local-first memory engine for Claude Code, Codex and other coding agents. It turns your existing session history into source-linked memories, flags a memory when the code it describes changes, and gives agents only what fits a token budget.</p>
 
@@ -101,6 +102,7 @@
         <ol>
           <li><code>recalla backfill</code> imports your Claude Code and Codex history.</li>
           <li><code>recalla hooks install</code> makes new Claude Code sessions start with relevant memory.</li>
+          <li><code>recalla ui</code> opens a local dashboard to see what it remembers.</li>
         </ol>
       </div>
       <div class="cta">
@@ -171,6 +173,32 @@ checked 1 anchors: 1 newly stale, 0 stale but matching again (confirm to clear)
 - We decided that `Store::insert` in src/store.rs must run inside a transaction. (symbol changed: Store::insert) [f76f7ff6]</span></pre>
         <figcaption>Real output from the v0.1.0 binary on a synthetic project in a scratch directory. Only the data path is shortened.</figcaption>
       </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="dashboard" aria-labelledby="h-dash">
+  <div class="wrap">
+    <div class="head"><h2 id="h-dash">Dashboard</h2><p class="lede">One command, in your browser.</p></div>
+    <div class="body">
+      <p class="dash-lead">See exactly what your agent remembers, and what it was given.</p>
+      <ul class="checks">
+        <li><strong>Every session and memory in one place.</strong> Browse, search and see where each memory came from.</li>
+        <li><strong>The exact pack each agent received.</strong> Its tokens against all candidate memories, so you can see what the budget saved.</li>
+        <li><strong>Setup without the terminal.</strong> One-click hook install, a test recall for any project, and history import.</li>
+      </ul>
+      <div class="cmd"><code data-copy>recalla ui</code><button class="copy" type="button">Copy</button></div>
+      <p class="note">Localhost only, behind a one-time login link. It serves no third-party content and nothing leaves your machine.</p>
+      <div class="shots">
+        <figure>
+          <img src="assets/dashboard-overview-light.webp" width="1100" height="526" loading="lazy" decoding="async" alt="Recalla dashboard overview: 9 memories, 1 session, and a card showing the context Claude received used 42.3% fewer tokens than sending every candidate memory.">
+          <figcaption>Overview. Synthetic demo data.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/dashboard-pack-dark.webp" width="1100" height="860" loading="lazy" decoding="async" alt="Dashboard page for one injected pack in dark mode: 130 tokens against 224 for all candidates, the five memories included, and the exact pack text.">
+          <figcaption>The exact pack one session received.</figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
@@ -314,27 +342,27 @@ checked 1 anchors: 1 newly stale, 0 stale but matching again (confirm to clear)
 
 <section class="sec" id="download" aria-labelledby="h-dl">
   <div class="wrap">
-    <div class="head"><h2 id="h-dl">Download</h2><p class="lede">v<span data-ver>0.1.0</span>. macOS and Linux; Windows via WSL.</p></div>
+    <div class="head"><h2 id="h-dl">Download</h2><p class="lede">v<span data-ver>0.2.0</span>. macOS and Linux; Windows via WSL.</p></div>
     <div class="body">
       <ul class="cards" id="cards">
         <li><div class="card" data-os="mac" data-arch="arm">
           <span class="rec">Recommended for your system</span><h3>macOS, Apple silicon</h3><span class="tgt">aarch64-apple-darwin</span>
-          <a class="btn" data-asset="aarch64-apple-darwin" href="https://github.com/damndeepesh/recalla/releases/download/v0.1.0/recalla-v0.1.0-aarch64-apple-darwin.tar.gz">Download .tar.gz</a></div></li>
+          <a class="btn" data-asset="aarch64-apple-darwin" href="https://github.com/damndeepesh/recalla/releases/download/v0.2.0/recalla-v0.2.0-aarch64-apple-darwin.tar.gz">Download .tar.gz</a></div></li>
         <li><div class="card" data-os="mac" data-arch="x64">
           <span class="rec">Recommended for your system</span><h3>macOS, Intel</h3><span class="tgt">x86_64-apple-darwin</span>
-          <a class="btn" data-asset="x86_64-apple-darwin" href="https://github.com/damndeepesh/recalla/releases/download/v0.1.0/recalla-v0.1.0-x86_64-apple-darwin.tar.gz">Download .tar.gz</a></div></li>
+          <a class="btn" data-asset="x86_64-apple-darwin" href="https://github.com/damndeepesh/recalla/releases/download/v0.2.0/recalla-v0.2.0-x86_64-apple-darwin.tar.gz">Download .tar.gz</a></div></li>
         <li><div class="card" data-os="linux" data-arch="x64">
           <span class="rec">Recommended for your system</span><h3>Linux, x86_64</h3><span class="tgt">x86_64-unknown-linux-gnu</span>
-          <a class="btn" data-asset="x86_64-unknown-linux-gnu" href="https://github.com/damndeepesh/recalla/releases/download/v0.1.0/recalla-v0.1.0-x86_64-unknown-linux-gnu.tar.gz">Download .tar.gz</a></div></li>
+          <a class="btn" data-asset="x86_64-unknown-linux-gnu" href="https://github.com/damndeepesh/recalla/releases/download/v0.2.0/recalla-v0.2.0-x86_64-unknown-linux-gnu.tar.gz">Download .tar.gz</a></div></li>
         <li><div class="card" data-os="linux" data-arch="arm">
           <span class="rec">Recommended for your system</span><h3>Linux, arm64</h3><span class="tgt">aarch64-unknown-linux-gnu</span>
-          <a class="btn" data-asset="aarch64-unknown-linux-gnu" href="https://github.com/damndeepesh/recalla/releases/download/v0.1.0/recalla-v0.1.0-aarch64-unknown-linux-gnu.tar.gz">Download .tar.gz</a></div></li>
+          <a class="btn" data-asset="aarch64-unknown-linux-gnu" href="https://github.com/damndeepesh/recalla/releases/download/v0.2.0/recalla-v0.2.0-aarch64-unknown-linux-gnu.tar.gz">Download .tar.gz</a></div></li>
         <li><div class="card planned">
           <h3>Windows: use WSL</h3><span class="tgt">native build not working yet</span>
           <p class="note">The Linux build runs inside WSL today. <a href="https://github.com/damndeepesh/recalla/issues">Native Windows is planned</a>.</p></div></li>
         <li><div class="card">
           <h3>Checksums</h3><span class="tgt">SHA256SUMS</span>
-          <a class="btn ghost" data-asset="SHA256SUMS" href="https://github.com/damndeepesh/recalla/releases/download/v0.1.0/SHA256SUMS">Download SHA256SUMS</a></div></li>
+          <a class="btn ghost" data-asset="SHA256SUMS" href="https://github.com/damndeepesh/recalla/releases/download/v0.2.0/SHA256SUMS">Download SHA256SUMS</a></div></li>
       </ul>
       <p class="note" id="detected" hidden></p>
       <div class="dl-more">
@@ -354,7 +382,7 @@ checked 1 anchors: 1 newly stale, 0 stale but matching again (confirm to clear)
     <div class="head"><h2 id="h-lim">Known limits and roadmap</h2><p class="lede">Alpha software, with the weak spots listed.</p></div>
     <div class="body">
       <ul class="limits">
-        <li><strong>Extraction is rule-based.</strong> It is precise but misses implicit rules, and it can still pick up a stray sentence. Check what it found with <code>recalla search</code>. To drop a wrong memory, ask your agent to forget it through the MCP <code>review</code> tool (reversible with <code>recalla confirm &lt;id&gt;</code>). A standalone <code>recalla forget</code> is the first post-release item.</li>
+        <li><strong>Extraction is rule-based.</strong> It is precise but misses implicit rules, and it can still pick up a stray sentence. Check what it found with <code>recalla search</code>. To drop a wrong memory, forget it in the dashboard (<code>recalla ui</code>) or ask your agent to, through the MCP <code>review</code> tool. Both are reversible.</li>
         <li><strong>Anchors need code to anchor to.</strong> A memory is anchored when it names a symbol that exists in a file from the same session, or a file path in its text. Prose-only histories produce few anchors.</li>
         <li><strong>Claude Code gets the hooks.</strong> Codex is covered by <code>backfill</code> and MCP. Native Codex hooks are on the roadmap.</li>
         <li><strong>English only</strong> for extraction phrases.</li>
@@ -366,7 +394,6 @@ checked 1 anchors: 1 newly stale, 0 stale but matching again (confirm to clear)
         <div><h3>Later</h3><ul><li>Optional local-LLM extraction</li><li>Serverless mirror sync</li><li>Hosted team sync</li></ul></div>
       </div>
       <p><a href="https://github.com/damndeepesh/recalla/blob/main/ROADMAP.md">Full roadmap</a>. If Recalla misses or invents something on your logs, <a href="https://github.com/damndeepesh/recalla/issues">open an issue</a>.</p>
-      <p class="next"><strong>Coming next:</strong> a local dashboard to browse your sessions and memories (<code>recalla ui</code>).</p>
     </div>
   </div>
 </section>
