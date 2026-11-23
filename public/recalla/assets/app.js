@@ -68,12 +68,15 @@
   var live = document.getElementById("live");
   document.querySelectorAll(".cmd .copy").forEach(function (btn) {
     btn.addEventListener("click", function () {
-      var text = btn.parentNode.querySelector("[data-copy]").textContent;
+      var text = btn.parentNode.querySelector("[data-copy]").textContent.replace(/\s+/g, " ").trim();
       var done = function (msg) {
-        btn.textContent = msg === "Copied" ? "Copied" : "Copy";
+        var ok = msg === "Copied";
+        btn.textContent = ok ? "Copied" : "Copy";
+        btn.classList.toggle("is-done", ok);
         live.textContent = "";
         setTimeout(function () { live.textContent = msg; }, 30);
-        setTimeout(function () { btn.textContent = "Copy"; }, 1800);
+        clearTimeout(btn._t);
+        btn._t = setTimeout(function () { btn.textContent = "Copy"; btn.classList.remove("is-done"); }, 1800);
       };
       (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
         .then(function () { done("Copied"); }, function () { done("Copy failed, select the text instead"); });
@@ -87,7 +90,7 @@
     var plat = ((uad && uad.platform) || navigator.platform || "").toLowerCase();
     var win = /^win/.test(plat) || /Windows/.test(ua);
     if (win) {
-      var wsl = document.querySelector('.card[data-os="linux"][data-arch="x64"]');
+      var wsl = document.querySelector('.bin[data-os="linux"][data-arch="x64"]');
       wsl.classList.add("is-rec");
       wsl.querySelector(".rec").textContent = "Use inside WSL";
       return;
@@ -95,7 +98,7 @@
     var os = /mac/.test(plat) || /Macintosh/.test(ua) ? "mac" : /linux/.test(plat) || (/Linux/.test(ua) && !/Android/.test(ua)) ? "linux" : null;
     if (!os) return;
     var a = arch || (/aarch64|arm64|armv8/i.test(ua + plat) ? "arm" : os === "linux" ? "x64" : null);
-    var cards = document.querySelectorAll('.card[data-os="' + os + '"]');
+    var cards = document.querySelectorAll('.bin[data-os="' + os + '"]');
     var hits = Array.prototype.filter.call(cards, function (c) { return !a || c.dataset.arch === a; });
     hits.forEach(function (c) { c.classList.add("is-rec"); });
     var note = document.getElementById("detected");
